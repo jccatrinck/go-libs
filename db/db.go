@@ -18,6 +18,7 @@ var (
 	db *gorm.DB
 )
 
+// Load connect to database
 func Load() (err error) {
 	mysqlDSN := fmt.Sprintf(
 		`%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local`,
@@ -51,6 +52,7 @@ func Load() (err error) {
 	return
 }
 
+// DB from gorm lib
 func DB() *gorm.DB {
 	if db == nil {
 		log.Panic("db is not set, verify database connection")
